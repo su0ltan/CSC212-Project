@@ -1,4 +1,4 @@
-
+package projectPhase2;
 public class LinkedList<T> {
 
 	private Node<T> head;

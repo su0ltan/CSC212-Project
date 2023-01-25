@@ -1,4 +1,4 @@
-
+package projectPhase2;
 public class rgnInfo {
 	public int region;
 	public int total_visitors;

@@ -1,4 +1,4 @@
-
+package projectPhase2;
 public class ArrayStack<T> {
 
 	private int maxsize;

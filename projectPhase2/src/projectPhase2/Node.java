@@ -1,4 +1,4 @@
-
+package projectPhase2;
 public class Node<T> {
 	
 	public T data;
