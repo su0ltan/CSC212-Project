@@ -1,6 +1,18 @@
-package projectPhase2;
-public class Node {
+
+public class Node<T> {
 	
-	int x;
+	public T data;
+	public Node<T> next;
+	
+	public Node() {
+		data =null;
+		next =null;
+	}
+	
+	public Node (T val) {
+		data = val;
+		next = null;
+		}
+
 
 }
