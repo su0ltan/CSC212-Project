@@ -27,5 +27,6 @@ public class ArrayStack<T> {
 	public T pop() {
 		return nodes[top--];
 	}
+	
 
 }

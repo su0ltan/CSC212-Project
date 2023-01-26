@@ -13,13 +13,21 @@ public class visitorInfo implements Serializable  {
 	
 	
 	
-	public visitorInfo(visitorInfo v) {
+	public visitorInfo(visitorInfo v ) {
 		fname=v.fname;
 		Lname = v.Lname;
 		phoneNum = v.phoneNum;
 		region= v.region;
 		type = v.type;
 		
+		
+	}
+	public void addToArrayStack(int []x) {
+		for (int i = 0 ; i < x.length; i++) {
+			order.push(x[i]);
+		}
+		
+	
 	}
 
 
@@ -33,6 +41,17 @@ public class visitorInfo implements Serializable  {
 		this.type = type;
 		this.order = order;
 	}
-	public visitorInfo () {}
+	public visitorInfo () {
+		order = new ArrayStack<>();
+	}
+	public void print() {
+		String s;
+		
+		if(type == 0) s = "regular";else s = "VIP";
+		System.out.println("First name:"+fname +" Last name: " + Lname+" Region: "+ region+" Visitor Type: "+s+ " Phone number: " + phoneNum);
+		while(!order.empty()) {
+			System.out.print(order.pop());
+		}
+	}
 	
 }
