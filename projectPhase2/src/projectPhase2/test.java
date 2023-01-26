@@ -39,7 +39,7 @@ public class test implements Serializable {
 			  try {
 				  Scanner sc = new Scanner(file);
 				 
-				  visitorInfo v = new visitorInfo((visitorInfo)sc.next());
+				  visitorInfo v = new visitorInfo((visitorInfogit )sc.next());
 				  
 				  System.out.println(sc.next());
 			  }catch(Exception x){
