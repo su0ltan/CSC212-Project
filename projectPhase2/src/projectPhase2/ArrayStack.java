@@ -5,11 +5,11 @@ public class ArrayStack<T> {
 	private int top;
 	private T[] nodes;
 
-	public ArrayStack(int n) {
+	public ArrayStack() {
 
-		maxsize = n;
+
 		top = -1;
-		nodes = (T[]) new Object[n];
+		nodes = (T[]) new Object[4];
 	}
 
 	public boolean empty() {

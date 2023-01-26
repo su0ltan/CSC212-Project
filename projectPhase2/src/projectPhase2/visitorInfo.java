@@ -1,5 +1,8 @@
 package projectPhase2;
-public class visitorInfo {
+
+import java.io.Serializable;
+
+public class visitorInfo implements Serializable  {
 
 	public String fname;
 	public String Lname;
@@ -10,7 +13,12 @@ public class visitorInfo {
 	
 	
 	
-	public visitorInfo() {
+	public visitorInfo(visitorInfo v) {
+		fname=v.fname;
+		Lname = v.Lname;
+		phoneNum = v.phoneNum;
+		region= v.region;
+		type = v.type;
 		
 	}
 
@@ -25,6 +33,6 @@ public class visitorInfo {
 		this.type = type;
 		this.order = order;
 	}
-	
+	public visitorInfo () {}
 	
 }
