@@ -36,6 +36,12 @@ public class LinkedList<T> {
 		current.data = val;
 	}
 
+	public void PrintElement() {
+		 Node <visitorInfo> tmp;
+		 tmp = (Node<visitorInfo>) head;
+		 while(tmp.data != null)
+			 tmp.data.print();
+	}
 	public void insert(T val) {
 		Node<T> tmp;
 		if (empty()) {

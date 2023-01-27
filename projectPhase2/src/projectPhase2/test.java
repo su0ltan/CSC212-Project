@@ -82,6 +82,7 @@ public class test implements Serializable {
 				    
 				        
 				       //v.print();
+				        
 
 
 				     
@@ -92,13 +93,11 @@ public class test implements Serializable {
 				       
 				       
 				 }
-				
-			        	
-			        
+			     	
 				
 				
 			  }catch(Exception x){
-				  System.out.println("File not found");
+				  System.out.println(x.getMessage());
 			  }
 		  }
 		  
