@@ -9,6 +9,12 @@ public class visitorInfo implements Serializable  {
 	public String phoneNum;
 	public int region;
 	public int type;
+	public ArrayStack<Integer> getOrder() {
+		return order;
+	}
+	public void setOrder(ArrayStack<Integer> order) {
+		this.order = order;
+	}
 	public ArrayStack<Integer> order;
 	
 	
@@ -22,14 +28,7 @@ public class visitorInfo implements Serializable  {
 		
 		
 	}
-	public void addToArrayStack(int []x) {
-		for (int i = 0 ; i < x.length; i++) {
-			order.push(x[i]);
-		}
-		
 	
-	}
-
 
 
 	public visitorInfo(String fname, String lname, String phoneNum, int region, int type, ArrayStack<Integer> order) {
@@ -48,10 +47,12 @@ public class visitorInfo implements Serializable  {
 		String s;
 		
 		if(type == 0) s = "regular";else s = "VIP";
-		System.out.println("First name:"+fname +" Last name: " + Lname+" Region: "+ region+" Visitor Type: "+s+ " Phone number: " + phoneNum);
+		System.out.print("First name:"+fname +" Last name: " + Lname+" Region: "+ region+" Visitor Type: "+s+ " Phone number: " + phoneNum + " "+"Kingdoms visited: ");
+		
 		while(!order.empty()) {
 			System.out.print(order.pop());
 		}
+		System.out.println();
 	}
 	
 }

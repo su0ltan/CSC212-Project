@@ -22,101 +22,79 @@ public class test implements Serializable {
 
 		visitorInfo person = new visitorInfo();
 
-	        File file = new File("C:\\Users\\Sultan\\data.txt");
+	        
 
 	    
-	        //readFileAndAnalyse(null);
-	        readFileAndAnalyse("");
+	        
+	      
+		
+		//declaring the file path and call the function
+	        String path = "C:\\Users\\Sultan\\data.txt";
+	        readFileAndAnalyse(path);
 
 	}
 
-	static void s() {
-		String str = "Sara,AlAli,1,1,0544444444,4,3,2,1";
-        String[] arrOfStr = str.split("," );
-        visitorInfo v = new visitorInfo();
-        
-        v.fname = arrOfStr[0];
-        v.Lname = arrOfStr[1];
-        v.region = Integer.parseInt(arrOfStr[2]) ;
-        v.type = Integer.parseInt(arrOfStr[3]) ;
-        v.phoneNum = arrOfStr[4];
-        v.print();
-      //  for (String a : arrOfStr)
-        	
-          
-	}
 	
 	
 	public static void readFileAndAnalyse(String f) {
 
 		
-		  File file = new File("C:\\Users\\Sultan\\data.txt");
+		  File file = new File(f);
+		  
 		  if(file.exists()) {
 			  try {
-				  LinkedList<visitorInfo> d = new LinkedList<>();
+				 
+				  // to store visitors info 
+				  LinkedList<visitorInfo> visitorsObj = new LinkedList<>();
+				  
+				  // to read the file
 				  Scanner sc = new Scanner(file);
-				 // String str =sc.nextLine();
-				  visitorInfo v = null ;
+				 
+				  
+				  visitorInfo tmpVistors = null ;
 				  String[] arrOfStr = null; ;
 				 
 				 while(sc.hasNextLine()) {
 					
-					 arrOfStr = sc.nextLine().split("," );
+					 /* split function divides the string line according to comma and store the
+					   words in the array */
+					 arrOfStr = sc.nextLine().split(",");
 					 
-					 v = new visitorInfo();
-					   v.fname = arrOfStr[0];
-				        v.Lname = arrOfStr[1];
-				        v.region = Integer.parseInt(arrOfStr[2]) ;
-				        v.type = Integer.parseInt(arrOfStr[3]) ;
-				        v.phoneNum = arrOfStr[4];
+					 // declaring new object and store the info into it
+					 tmpVistors = new visitorInfo();
+					 tmpVistors.fname = arrOfStr[0];
+					 tmpVistors.Lname = arrOfStr[1];
+					 tmpVistors.region = Integer.parseInt(arrOfStr[2]) ;
+					 tmpVistors.type = Integer.parseInt(arrOfStr[3]) ;
+					 tmpVistors.phoneNum = arrOfStr[4];
 				        
 				 
+				        //for unknown remaining words are the kingdom order we store it into x
 				        int[] x = new int[arrOfStr.length - 5];
-				        
+				   
+				        ArrayStack<Integer> kOrder = new ArrayStack<>();
 				        for(int i = 5 ; i < arrOfStr.length ;i++)
-				        	x[i - 5] = Integer.parseInt(arrOfStr[i]);
+				        	kOrder.push(Integer.parseInt(arrOfStr[i]));
 				     
-				        v.addToArrayStack(x);
-				        d.insert(v);
-				        d.retrieve().print();
-				    
 				        
-				       //v.print();
-				        
-
-
-				     
-				     //   for(int c = 0 ; c < x.length ;c++)
-				        //	System.out.println(" dd: "+x[c]);
-				        
-				        
-				       
+				        tmpVistors.setOrder(kOrder);
+				        visitorsObj.insert(tmpVistors);
+				 // d.retrieve().print();     
 				       
 				 }
-			     	
-				
-				
-			  }catch(Exception x){
+				 
+				 
+				 try {
+					 visitorsObj.PrintElement();
+				 }catch(NullPointerException n) {
+					 System.out.println("null pointet"); 
+				 }
+				 
+			  }
+			  catch(Exception x){
 				  System.out.println(x.getMessage());
 			  }
 		  }
-		  
-		
-			/*
-			 * FileInputStream fstream = new FileInputStream(file); ObjectInputStream
-			 * ostream = new ObjectInputStream(fstream);
-			 * 
-			 * visitorInfo v; boolean ok = false;
-			 * 
-			 * while(!ok){ try { v = new visitorInfo(); v =
-			 * (visitorInfo)ostream.readObject();
-			 * 
-			 * }catch(EOFException e) { ok = true; } }
-			 */
-		 
-		
-			
-		
 	}
 
 }
