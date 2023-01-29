@@ -1,8 +1,8 @@
 package projectPhase2;
 public class LinkedList<T> {
 
-	private Node<T> head;
-	private Node<T> current;
+	public Node<T> head;
+	public Node<T> current;
 
 	public LinkedList() {
 		head = current = null;
@@ -44,6 +44,7 @@ public class LinkedList<T> {
 			 tmp = tmp.next;
 		 }
 	}
+	
 	public void insert(T val) {
 		Node<T> tmp;
 		if (empty()) {

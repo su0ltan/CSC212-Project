@@ -1,23 +1,45 @@
 package projectPhase2;
 
-public class ThemeParkADT {
+public class ThemeParkADT<T> {
 	
 	
-	private rgnInfo regionArray[];
+	private rgnInfo regionArray[]; 
 	int k;
-	public ThemeParkADT(int k) {
-		
-		//regionArray = new rgnInfo(null , null , null);
-		
+	LinkedList<visitorInfo> n;
+	Node<T> T;
+	
+	
+	
+	LinkedList<visitorInfo> visitors;
+	
+	
+	 public LinkedList<visitorInfo> getVisitors() {
+		return visitors;
 	}
-	
-	
-	 public int  rgnCount() {
+
+
+	public void setVisitors(LinkedList<visitorInfo> visitors) {
+		n = visitors;
+	}
+
+
+	public int  rgnCount() {
 		 return 0;
 	 }
 
 
 	public void  searchVisitor(String lName) {
+		
+		n.current=n.head;
+		while(n.current!=null) {
+			
+			if(n.current.data.Lname.equals(lName)) {
+				;
+				n.current.data.print();}
+			n.current=n.current.next;
+		
+		}
+		
 	
 
 	}
@@ -46,6 +68,6 @@ public class ThemeParkADT {
 	
 	public boolean  checkRegLoc(int r, String n1, String n2, Boolean flag) {
 		return flag;
-	}
+	}	
 
 }

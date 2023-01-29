@@ -83,12 +83,16 @@ public class test implements Serializable {
 				       
 				 }
 				 
+				 ThemeParkADT<visitorInfo>xx = new ThemeParkADT<>();
+				 xx.setVisitors(visitorsObj);
+				 xx.searchVisitor("AlSaleh");
+					/*
+					 * try { visitorsObj.PrintElement(); }catch(NullPointerException n) {
+					 * System.out.println("null pointet"); }
+					 */
+				 //ThemeParkADT them = new ThemeParkADT(0);
+				 //them.setVisitors(visitorsObj);
 				 
-				 try {
-					 visitorsObj.PrintElement();
-				 }catch(NullPointerException n) {
-					 System.out.println("null pointet"); 
-				 }
 				 
 			  }
 			  catch(Exception x){
