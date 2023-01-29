@@ -50,7 +50,8 @@ public class visitorInfo implements Serializable  {
 		
 		if(type == 0) s = "regular";else s = "VIP";
 		System.out.print("First name:"+fname +" Last name: " + Lname+" Region: "+ region+" Visitor Type: "+s+ " Phone number: " + phoneNum + " "+"Kingdoms visited: ");
-		ArrayStack<Integer> tmp=null;
+		
+		ArrayStack<Integer> tmp=new ArrayStack<>();
 		while(!order.empty()) {
 			int x=order.pop();
 			System.out.print(x);

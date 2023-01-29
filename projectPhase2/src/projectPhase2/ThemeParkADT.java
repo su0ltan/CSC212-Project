@@ -4,9 +4,20 @@ public class ThemeParkADT<T> {
 	
 	
 	private rgnInfo regionArray[]; 
-	int k;
-	LinkedList<visitorInfo> n;
-	Node<T> T;
+	int maxK;
+	public int getMaxK() {
+		return maxK;
+	}
+
+
+	public void setMaxK(int maxK) {
+		this.maxK = maxK;
+	}
+
+
+	private LinkedList<visitorInfo> n;
+	private Node<T> T;
+	private rgnInfo rgnSortedArray[];
 	
 	
 	
@@ -23,8 +34,8 @@ public class ThemeParkADT<T> {
 	}
 
 
-	public int  rgnCount() {
-		 return 0;
+	public void  rgnCount() {
+		 System.out.println("The total number of regions are " + maxK); 
 	 }
 
 
@@ -34,14 +45,11 @@ public class ThemeParkADT<T> {
 		while(n.current!=null) {
 			
 			if(n.current.data.Lname.equals(lName)) {
-				;
+				
 				n.current.data.print();}
 			n.current=n.current.next;
 		
 		}
-		
-	
-
 	}
 	
 		

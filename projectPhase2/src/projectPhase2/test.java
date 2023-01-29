@@ -17,6 +17,7 @@ import javax.tools.FileObject;
 
 public class test implements Serializable {
 
+	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO Auto-generated method stub
 
@@ -44,8 +45,11 @@ public class test implements Serializable {
 		  if(file.exists()) {
 			  try {
 				 
+				  int maxK = 0;
 				  // to store visitors info 
 				  LinkedList<visitorInfo> visitorsObj = new LinkedList<>();
+				  LinkedList<visitorInfo> vips = new LinkedList<>();
+				  LinkedList<visitorInfo> regularVisitors = new LinkedList<>();
 				  
 				  // to read the file
 				  Scanner sc = new Scanner(file);
@@ -69,8 +73,10 @@ public class test implements Serializable {
 					 tmpVistors.phoneNum = arrOfStr[4];
 				        
 				 
-				        //for unknown remaining words are the kingdom order we store it into x
-				        int[] x = new int[arrOfStr.length - 5];
+					 if(maxK < tmpVistors.region)
+						 maxK = tmpVistors.region;
+						 
+				        
 				   
 				        ArrayStack<Integer> kOrder = new ArrayStack<>();
 				        for(int i = 5 ; i < arrOfStr.length ;i++)
@@ -78,27 +84,42 @@ public class test implements Serializable {
 				     
 				        
 				        tmpVistors.setOrder(kOrder);
+				         
+				       addTypeForsVisitors(tmpVistors  , regularVisitors, vips);
+				        
+				        searchRegion(tmpVistors.region);
 				        visitorsObj.insert(tmpVistors);
-				 // d.retrieve().print();     
+				   
 				       
 				 }
+				 //vips.PrintElement();
 				 
 				 ThemeParkADT<visitorInfo>xx = new ThemeParkADT<>();
 				 xx.setVisitors(visitorsObj);
-				 xx.searchVisitor("AlSaleh");
-					/*
-					 * try { visitorsObj.PrintElement(); }catch(NullPointerException n) {
-					 * System.out.println("null pointet"); }
-					 */
-				 //ThemeParkADT them = new ThemeParkADT(0);
-				 //them.setVisitors(visitorsObj);
-				 
+				 xx.setMaxK(maxK);
+				//xx.searchVisitor("Ameer");
+					
+				 xx.rgnCount();
 				 
 			  }
 			  catch(Exception x){
 				  System.out.println(x.getMessage());
 			  }
 		  }
+	}
+	
+	
+	 
+	public static void addTypeForsVisitors(visitorInfo tmp , LinkedList<visitorInfo> regularVisitors , LinkedList<visitorInfo> vips ){
+		 if(tmp.type == 1)
+	        	vips.insert(tmp);
+		 else
+			 regularVisitors.insert(tmp);
+		 
+	}
+	public static void searchRegion(int r) {
+	
+		//if(r)
 	}
 
 }
