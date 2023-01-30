@@ -4,6 +4,14 @@ public class LinkedList<T> {
 	public Node<T> head;
 	public Node<T> current;
 
+	public Node<T> getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(Node<T> current) {
+		this.current = current;
+	}
+
 	public LinkedList() {
 		head = current = null;
 	}

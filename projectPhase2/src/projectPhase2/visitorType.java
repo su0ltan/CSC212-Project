@@ -15,6 +15,7 @@ public class visitorType {
 	public void countVisitors(){
 		while(visitList.current !=null)
 			NumVistor++;
+		System.out.println(NumVistor);
 		
 	}
 
