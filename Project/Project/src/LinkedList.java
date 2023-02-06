@@ -1,19 +1,15 @@
-package projectPhase2;
+
 public class LinkedList<T> {
-
-	public Node<T> head;
-	public Node<T> current;
-
-	public Node<T> getCurrent() {
-		return current;
-	}
-
-	public void setCurrent(Node<T> current) {
-		this.current = current;
-	}
+	private Node<T> head;
+	private Node<T> current;
+	private int size;
 
 	public LinkedList() {
 		head = current = null;
+	}
+	
+	public boolean full() {
+		return false;
 	}
 
 	public boolean empty() {
@@ -23,17 +19,20 @@ public class LinkedList<T> {
 	public boolean last() {
 		return current.next == null;
 	}
-
-	public boolean full() {
-		return false;
+	
+	public int getSize() {
+		return size;
 	}
-
-	public void findfirst() {
+	
+	public void findFirst() {
 		current = head;
 	}
 
-	public void findnext() {
-		current = current.next;
+	public void findNext() {
+		if (current == null)
+			return;
+		if (current.next != null)
+			current = current.next;
 	}
 
 	public T retrieve() {
@@ -44,15 +43,6 @@ public class LinkedList<T> {
 		current.data = val;
 	}
 
-	public void PrintElement() {
-		 Node <visitorInfo> tmp;
-		 tmp = (Node<visitorInfo>) head;
-		 while(tmp != null) {
-			 tmp.data.print();
-			 tmp = tmp.next;
-		 }
-	}
-	
 	public void insert(T val) {
 		Node<T> tmp;
 		if (empty()) {
@@ -63,9 +53,13 @@ public class LinkedList<T> {
 			current = current.next;
 			current.next = tmp;
 		}
+		size = size + 1;
 	}
 
 	public void remove() {
+		if (empty())
+			return;
+		
 		if (current == head) {
 			head = head.next;
 		} else {
@@ -78,6 +72,10 @@ public class LinkedList<T> {
 			current = head;
 		else
 			current = current.next;
+		
+		size = size - 1;
 	}
+
+	
 
 }
